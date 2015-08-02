@@ -1,0 +1,22 @@
+{
+	"manifest_version": 2,
+	"name": "GitHubReportCard",
+	"version": "0.1",
+	"description": "Shows issues closed today for a bookmarked GitHub repository",
+
+	"content_scripts": [{
+		"matches": ["https://www.github.com/*"],
+		"js": ["content.js"]
+	}],
+
+	"page_action": {
+		"default_icon": "Aplus.png",
+		"default_title": "GithubReportCard"
+	},
+
+	"background": {
+		"scripts": ["background.js", "content.js"]
+	},
+
+		"permissions": ["bookmarks", "tabs", "*://*/*"]
+	}
