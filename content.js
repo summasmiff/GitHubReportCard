@@ -34,14 +34,15 @@ chrome.pageAction.onClicked.addListener(function(tab) {
 
 	//create bookmark
 	function createBookmark(bookmarkBar) {
-		console.log(bookmarkBar.id);
 		var repoUrl = baseUrl + '/issues?utf8=✓&q=is%3Aissue+closed%3A>';
+		var repoName = baseUrl.split('/')[4];
 		var date = urlDate();
 		var bookmarkBarId = bookmarkBar.id;
 		var reportCardUrl = repoUrl + date + '+';
+		var reportCardName = 'ReportCard: ' + repoName;
 		chrome.bookmarks.create({
 			parentId: bookmarkBarId,
-			title: 'Report Card',
+			title: reportCardName,
 			url: reportCardUrl
 		},
 		function newReportCard() {

@@ -1,6 +1,6 @@
 ###GitHub Report Card
 
-A Chrome extension to create a bookmark that shows how many GitHub issues closed today
+A Chrome extension to create a bookmark that shows how many GitHub issues closed today.
 
 ##How to Use
 1. Navigate to a GitHub repo.
