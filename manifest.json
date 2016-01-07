@@ -6,17 +6,19 @@
 
 	"content_scripts": [{
 		"matches": ["https://www.github.com/*"],
-		"js": ["content.js"]
+		"css": ["style.css"],
+		"js": ["jquery-2.1.4.min.js", "background.js", "popup.js"]
 	}],
 
 	"page_action": {
 		"default_icon": "Aplus.png",
-		"default_title": "GithubReportCard"
+		"default_title": "GithubReportCard",
+		"default_popup": "popup.html"
 	},
 
 	"background": {
-		"scripts": ["background.js", "content.js"]
+		"scripts": [ "background.js"]
 	},
 
-		"permissions": ["bookmarks", "tabs", "*://*/*"]
+		"permissions": ["bookmarks", "tabs", "activeTab", "https://www.github.com/*"]
 	}
