@@ -55,10 +55,9 @@ var ReportCard = {
 	createBookmark: function(bookmarkBar) {
 		var repoUrl = this.url + '/issues?utf8=✓&q=is%3Aissue+closed%3A<';
 		var today = this.getToday();
-		var repoName = this.url.split('/')[4];
 		var bookmarkBarId = bookmarkBar.id;
 		var reportCardUrl = repoUrl + today + '+closed%3A>' + this.modifiedDate;
-		var reportCardName = 'ReportCard: ' + repoName;
+		var reportCardName = 'ReportCard: ' + this.repoName;
 		chrome.bookmarks.create({
 			parentId: bookmarkBarId,
 			title: reportCardName,
@@ -71,6 +70,8 @@ var ReportCard = {
 
 	initialize: function(url) {
 		this.url = url;
+		this.repoName = this.url.split('/')[4];
+		$('#repo-name').append(this.repoName);
 		var self = this;
 		$('#one-week').click(function() {
 			self.modifiedDate = self.weekFromNow();
