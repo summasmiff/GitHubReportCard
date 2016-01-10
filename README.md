@@ -2,6 +2,8 @@
 
 A Chrome extension to track issues closed on a particular GitHub repo.
 
+[GitHub Report Card](https://chrome.google.com/webstore/detail/github-report-card/ekilihfbhknpfdackiolkhapdolbbpae) on the Chrome Store
+
 ##How to Use
 1. Navigate to a GitHub repo.
 2. Click the Report Card button in the omnibox.

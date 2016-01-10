@@ -1,8 +1,9 @@
 {
 	"manifest_version": 2,
-	"name": "GitHubReportCard",
+	"name": "GitHub Report Card",
+	"short_name": "GitHubReportCard",
 	"version": "0.1",
-	"description": "Shows issues closed today for a bookmarked GitHub repository",
+	"description": "Creates a bookmark for closed issues on a GitHub repository",
 
 	"content_scripts": [{
 		"matches": ["https://www.github.com/*"],
