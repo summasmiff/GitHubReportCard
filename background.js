@@ -1,24 +1,13 @@
-sixHours = function() {
-	return (60000 * 6);
-};
+function showPageAction(tabId, changeInfo, tab) {
+  chrome.pageAction.show(tabId);
+}
 
-function urlDate() {
-	var d = new Date();
-	var yyyy = d.getFullYear().toString();
-  var mm = (d.getMonth()+1).toString(); // getMonth() is zero-based
-  var dd = d.getDate().toString();
-  return (yyyy + '-' + (mm[1]?mm:'0'+mm[0]) + '-' + (dd[1]?dd:'0'+dd[0]));
-};
+chrome.tabs.onUpdated.addListener(showPageAction);
 
-updateUrl = function() {
-	updatedUrl = (repoUrl + urlDate());
-	chrome.bookmarks.update('reportCard', {url: updatedUrl},
-		function(updatedReportCard) {
-			console.log('Updated report card bookmark')
-		});
-};
+chrome.pageAction.onClicked.addListener(function(tab) {
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    activeTab = tabs[0].id;
+  });
 
-
-scheduleUrlUpdate = function(wait) {
-	return setTimeout(updateUrl, sixHours());
-};
+  chrome.tabs.sendMessage(activeTab, {"activeTab": "clicked_page_action"});
+});
