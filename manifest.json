@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "GitHub Report Card",
 	"short_name": "GitHubReportCard",
-	"version": "0.2",
+	"version": "0.3",
 	"description": "Creates a bookmark for closed issues on a GitHub repository",
 
 	"content_scripts": [{
